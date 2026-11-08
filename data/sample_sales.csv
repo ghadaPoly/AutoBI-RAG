@@ -1,0 +1,11 @@
+date,product,category,quantity,unit_price,region
+2026-01-02,Laptop,Electronics,2,800,Paris
+2026-01-03,Mouse,Accessories,5,20,Lyon
+2026-01-05,Keyboard,Accessories,3,50,Paris
+2026-01-08,Phone,Electronics,4,500,Marseille
+2026-01-10,Monitor,Electronics,2,250,Lyon
+2026-02-01,Laptop,Electronics,1,800,Paris
+2026-02-03,Mouse,Accessories,10,20,Marseille
+2026-02-05,Keyboard,Accessories,4,50,Lyon
+2026-02-08,Phone,Electronics,2,500,Paris
+2026-02-10,Monitor,Electronics,3,250,Marseille
