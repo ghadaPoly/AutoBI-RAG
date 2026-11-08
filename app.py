@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from agent.llm_client import ask_llm
 
 from bi_engine.csv_loader import load_csv
 from bi_engine.profiler import profile_dataset
@@ -118,3 +119,23 @@ if uploaded_file is not None:
 
     except Exception as error:
         st.error(f"Erreur pendant l'analyse : {error}")
+
+    
+st.header("6. Assistant IA")
+
+question = st.text_area(
+    "Posez une question à AutoBI-RAG"
+)
+
+if st.button("Envoyer au LLM") and question.strip():
+
+    with st.spinner("Le modèle prépare sa réponse..."):
+
+        try:
+            response = ask_llm(question)
+
+            st.markdown("### Réponse")
+            st.write(response)
+
+        except Exception as error:
+            st.error(f"Erreur : {error}")
