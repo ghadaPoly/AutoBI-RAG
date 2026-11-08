@@ -1,3 +1,4 @@
+
 TOOLS = {
     "profile_dataset": {
         "description": (
@@ -65,6 +66,16 @@ TOOLS = {
             "x_column",
             "y_column"
         ]
+    },
+
+    "search_knowledge": {
+        "description": (
+            "Rechercher des connaissances dans la base documentaire RAG : "
+            "définitions des KPI, formules BI, règles d'interprétation "
+            "et méthodes d'analyse. Retourne les passages pertinents "
+            "avec leurs sources."
+        ),
+        "parameters": ["question", "top_k"]
     }
 }
 

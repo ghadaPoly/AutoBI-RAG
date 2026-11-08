@@ -5,3 +5,5 @@ plotly
 python-dotenv
 pytest
 openai
+sentence-transformers
+chromadb

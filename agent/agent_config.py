@@ -1,3 +1,5 @@
+
+# Intentions reconnues par l'agent.
 INTENTS = [
     "dataset_overview",
     "column_info",
@@ -7,8 +9,10 @@ INTENTS = [
     "visualization",
     "comparison",
     "general_question",
+    "knowledge_search",
     "clarification"
 ]
+
 
 # Opérations disponibles.
 # count et nunique fonctionnent sur tous les types de colonnes.
@@ -21,6 +25,7 @@ OPERATIONS = [
     "nunique"
 ]
 
+
 FILTER_OPERATORS = [
     "equals",
     "not_equals",
@@ -29,12 +34,14 @@ FILTER_OPERATORS = [
     "contains"
 ]
 
+
 CHART_TYPES = [
     "bar",
     "line",
     "pie",
     "scatter"
 ]
+
 
 AGENT_OUTPUT_FORMAT = {
     "intent": "kpi",

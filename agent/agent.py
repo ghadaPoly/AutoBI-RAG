@@ -24,6 +24,8 @@ from agent.agent_config import (
     CHART_TYPES
 )
 
+from rag.retriever import retrieve_knowledge
+
 
 # --------------------------------------------------
 # 1. EXTRACTION DU JSON
@@ -229,6 +231,22 @@ def validate_plan(plan, df):
                 raise ValueError(
                     "profile_dataset ne prend aucun paramètre."
                 )
+
+        elif tool == "search_knowledge":
+
+            question = parameters.get("question")
+            top_k = parameters.get("top_k", 3)
+
+            if not isinstance(question, str) or not question.strip():
+                raise ValueError(
+                    "La question de recherche RAG est obligatoire."
+                )
+
+            if not isinstance(top_k, int) or isinstance(top_k, bool):
+                raise ValueError("top_k doit être un nombre entier.")
+
+            if top_k < 1 or top_k > 10:
+                raise ValueError("top_k doit être compris entre 1 et 10.")
 
     return plan
 
@@ -610,6 +628,12 @@ def execute_plan(df, plan):
                 params["chart_type"],
                 params["x_column"],
                 params["y_column"]
+            )
+
+        elif tool == "search_knowledge":
+            output = retrieve_knowledge(
+                question=params["question"],
+                top_k=params.get("top_k", 3)
             )
 
         else:
